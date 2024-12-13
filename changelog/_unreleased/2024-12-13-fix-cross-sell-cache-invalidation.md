@@ -1,6 +1,6 @@
 ---
 title: Fix cross-sell cache invalidation for product page
-issue: NEXT-40037
+issue: NEXT-40050
 ---
 
 # Core
