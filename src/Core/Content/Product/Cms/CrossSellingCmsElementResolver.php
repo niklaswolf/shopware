@@ -57,7 +57,10 @@ class CrossSellingCmsElementResolver extends AbstractProductDetailCmsElementReso
             return;
         }
 
-        $crossSellings = $this->crossSellingLoader->load($product->getId(), new Request(), $context, new Criteria())->getResult();
+        // ensure to use the parent id, so that the cross-sells cache-tag on product page is build with the correct product-id
+        // cross-sells are managed through parent products, so also the invalidation contains the parent id.
+        $productId = $product->getParentId() ?? $product->getId();
+        $crossSellings = $this->crossSellingLoader->load($productId, new Request(), $context, new Criteria())->getResult();
 
         if ($crossSellings->count()) {
             $struct->setCrossSellings($crossSellings);
