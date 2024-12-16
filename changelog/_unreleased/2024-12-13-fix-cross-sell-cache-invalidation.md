@@ -5,4 +5,4 @@ issue: NEXT-40050
 
 # Core
 
-* Load cross-sells via parent-product (if one exists) to fix cache invalidation of product page
+* Changed loading of cross-sells via parent-product (if one exists) to fix cache invalidation of product page
